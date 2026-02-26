@@ -5,10 +5,16 @@ export default function UploadZone({ onImageLoaded }) {
   const [preview, setPreview] = useState(null)
   const [fileName, setFileName] = useState(null)
   const [dimensions, setDimensions] = useState(null)
+  const [fileError, setFileError] = useState(null)
   const fileInputRef = useRef(null)
 
   const processFile = useCallback((file) => {
-    if (!file || !file.type.startsWith('image/')) return
+    if (!file) return
+    if (!file.type.startsWith('image/')) {
+      setFileError(`"${file.name}" is not a supported image file. Please upload a PNG, JPG, WebP, GIF, or SVG.`)
+      return
+    }
+    setFileError(null)
 
     const url = URL.createObjectURL(file)
     const img = new Image()
@@ -55,7 +61,7 @@ export default function UploadZone({ onImageLoaded }) {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full space-y-3">
       <div
         role="button"
         tabIndex={0}
@@ -66,7 +72,7 @@ export default function UploadZone({ onImageLoaded }) {
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         className={[
-          'relative w-full rounded-2xl p-8 cursor-pointer transition-all duration-200',
+          'relative w-full rounded-2xl p-4 sm:p-8 cursor-pointer transition-all duration-200',
           'border-2 border-dashed',
           isDragging
             ? 'border-azure/80 bg-azure/5'
@@ -132,6 +138,16 @@ export default function UploadZone({ onImageLoaded }) {
           </div>
         )}
       </div>
+
+      {/* File type error */}
+      {fileError && (
+        <div className="flex items-start gap-3 p-3 rounded-xl bg-coral/10 border border-coral/30 text-coral text-sm" role="alert">
+          <svg className="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+          </svg>
+          <span>{fileError}</span>
+        </div>
+      )}
     </div>
   )
 }

@@ -83,7 +83,7 @@ export default function PlatformSelector({ selected, onChange }) {
   const totalCount = allKeys.length
 
   return (
-    <div className="card-gradient border border-metal/20 rounded-2xl p-6">
+    <div className="card-gradient border border-metal/20 rounded-2xl p-4 sm:p-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
         <div>
           <h2 className="text-white font-semibold text-lg">Select Sizes</h2>
@@ -94,7 +94,7 @@ export default function PlatformSelector({ selected, onChange }) {
         <div className="flex gap-3">
           <button
             onClick={handleCheckAll}
-            className="text-sm text-azure hover:text-white transition-colors duration-200 font-medium focus:outline-none focus:underline"
+            className="text-sm text-azure hover:text-white transition-colors duration-200 font-medium focus:outline-none focus:underline min-h-[44px] px-2"
             type="button"
           >
             Select all
@@ -102,7 +102,7 @@ export default function PlatformSelector({ selected, onChange }) {
           <span className="text-metal" aria-hidden="true">/</span>
           <button
             onClick={handleUncheckAll}
-            className="text-sm text-azure hover:text-white transition-colors duration-200 font-medium focus:outline-none focus:underline"
+            className="text-sm text-azure hover:text-white transition-colors duration-200 font-medium focus:outline-none focus:underline min-h-[44px] px-2"
             type="button"
           >
             Deselect all

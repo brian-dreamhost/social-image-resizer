@@ -59,7 +59,7 @@ export default function ResizedCard({ canvas, platform, label, width, height }) 
       <button
         onClick={handleDownload}
         type="button"
-        className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-azure hover:bg-azure-hover text-white text-sm font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-azure focus:ring-offset-2 focus:ring-offset-abyss"
+        className="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-azure hover:bg-azure-hover text-white text-sm font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-azure focus:ring-offset-2 focus:ring-offset-abyss"
         aria-label={`Download ${platform} ${label} ${width}x${height}`}
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">

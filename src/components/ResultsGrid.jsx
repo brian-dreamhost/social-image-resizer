@@ -40,7 +40,7 @@ export default function ResultsGrid({ results }) {
             onClick={handleDownloadAll}
             disabled={isZipping}
             type="button"
-            className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-azure text-azure hover:bg-azure/10 font-semibold text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-azure focus:ring-offset-2 focus:ring-offset-abyss disabled:opacity-60 disabled:cursor-not-allowed whitespace-nowrap"
+            className="flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-azure text-azure hover:bg-azure/10 font-semibold text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-azure focus:ring-offset-2 focus:ring-offset-abyss disabled:opacity-60 disabled:cursor-not-allowed whitespace-nowrap"
             aria-label="Download all resized images as ZIP"
           >
             {isZipping ? (
@@ -64,7 +64,7 @@ export default function ResultsGrid({ results }) {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {results.map((result, index) => (
           <ResizedCard
             key={`${result.platform}-${result.label}-${index}`}

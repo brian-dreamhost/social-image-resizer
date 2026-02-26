@@ -127,7 +127,7 @@ export default function App() {
                 <h2 id="mode-heading" className="text-white font-semibold text-lg">Choose resize mode</h2>
               </div>
 
-              <div className="card-gradient border border-metal/20 rounded-2xl p-5">
+              <div className="card-gradient border border-metal/20 rounded-2xl p-4 sm:p-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {/* Crop to fill */}
                   <label
