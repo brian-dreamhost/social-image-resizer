@@ -19,6 +19,17 @@ export default function App() {
   const [isGenerating, setIsGenerating] = useState(false)
   const [error, setError] = useState(null)
 
+  const fillTestData = useCallback(() => {
+    // Select only Instagram sizes as a quick preset and set crop mode
+    const instagramKeys = new Set(
+      PLATFORMS
+        .filter(p => p.platform === 'Instagram')
+        .flatMap(p => p.sizes.map(s => `${p.platform}::${s.label}`))
+    )
+    setSelected(instagramKeys)
+    setResizeMode('crop')
+  }, [])
+
   const handleImageLoaded = useCallback((img, fileName) => {
     setImageElement(img)
     setImageFileName(fileName)
@@ -105,6 +116,17 @@ export default function App() {
             Upload one image and instantly resize it to every standard social media dimension.
             Download individually or all at once as a ZIP.
           </p>
+        </div>
+
+        {/* Fill Test Data */}
+        <div className="flex justify-end mb-4">
+          <button
+            type="button"
+            onClick={fillTestData}
+            className="px-3 py-1.5 text-xs font-mono bg-prince/20 text-prince border border-prince/30 rounded hover:bg-prince/30 transition-colors focus:outline-none focus:ring-2 focus:ring-prince focus:ring-offset-2 focus:ring-offset-abyss"
+          >
+            Fill Test Data
+          </button>
         </div>
 
         {/* Main content */}
