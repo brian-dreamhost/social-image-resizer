@@ -80,7 +80,7 @@ export default function App() {
 
   return (
     <div className="bg-abyss bg-glow bg-grid min-h-screen">
-      <div className="relative max-w-6xl mx-auto px-4 py-12">
+      <div className="relative max-w-[1600px] mx-auto px-4 py-12">
 
         {/* Breadcrumb */}
         <nav className="mb-8 text-sm text-galactic" aria-label="Breadcrumb">
